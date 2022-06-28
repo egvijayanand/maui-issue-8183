@@ -4,6 +4,7 @@ using Issue8183.Renderers;
 using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
 using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Platform;
 using System.ComponentModel;
 
 using TPlatformView = AndroidX.AppCompat.Widget.AppCompatTextView;
@@ -35,6 +36,8 @@ namespace Issue8183.Renderers
                 }
 
                 // Initialization
+                UpdateText();
+                UpdateTextColor();
             }
         }
 
@@ -46,6 +49,10 @@ namespace Issue8183.Renderers
             {
                 UpdateText();
             }
+            else if (e.PropertyName == TestView.TextColorProperty.PropertyName)
+            {
+                UpdateTextColor();
+            }
         }
 
         private void UpdateText()
@@ -53,6 +60,14 @@ namespace Issue8183.Renderers
             if (Control != null)
             {
                 Control.Text = Element?.Text;
+            }
+        }
+
+        private void UpdateTextColor()
+        {
+            if (Control != null && Element != null)
+            {
+                Control.SetTextColor(Element.TextColor.ToPlatform());
             }
         }
     }

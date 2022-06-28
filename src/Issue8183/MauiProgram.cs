@@ -18,7 +18,7 @@ namespace Issue8183
                    .UseMauiCompatibility()
                    .ConfigureMauiHandlers(handlers =>
                    {
-                       handlers.AddCompatibilityRenderer(typeof(TestView), typeof(TestViewRenderer));
+                       handlers.AddHandler(typeof(TestView), typeof(TestViewRenderer));
                    });
 
             return builder.Build();

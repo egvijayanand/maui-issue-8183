@@ -10,7 +10,9 @@
             Padding="30"
             Spacing="25">
 
-            <controls:TestView Text="Renderer control" />
+            <controls:TestView
+                Text="Renderer control"
+                TextColor="Purple" />
 
             <Label
                 FontSize="32"
